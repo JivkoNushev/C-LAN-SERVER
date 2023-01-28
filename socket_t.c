@@ -155,6 +155,7 @@ int resend_messages(struct socket_t *this, struct fd_queue* clients)
                     return -1;
                 }
 
+                // add the name of the sender to the message
                 message = (char*)err_allocate((void*)add_sender(message, &read_status, it->client.fd));
                 memory_deallocator = (struct Queue *)err_allocate((void *)memory_deallocator->add(memory_deallocator, (void*)message, SIMPLE_POINTER_T));
 

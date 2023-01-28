@@ -137,6 +137,7 @@ int resend_messages(struct socket_t *this, struct fd_queue* clients)
             // reading from the clients who have messaged
             if(FD_ISSET(it->client.fd, &rfds))
             {
+                printf("Client %d: ", it->client.fd);
                 message = this->recv(this, it->client.fd, (size_t*)&read_status);
 
                 if(message == NULL)
